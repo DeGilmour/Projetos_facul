@@ -1,0 +1,31 @@
+
+<div class="container mt-5">
+<h1> Cadastro de Livros </h1>
+<div class="input-group mb-3 ">
+    
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Cadastre Aqui</span>
+    </div>
+    <tr>
+        <input type="text"  class="form-control"  [ngModel]="titulo" (ngModelChange)="titulo = $event" placeholder="Titulo" aria-label="Username" aria-describedby="basic-addon1">
+    </tr>
+    <tr>
+        <input type="text"   [(ngModel)]="autor" class="form-control" (input)="autor = $event.target.value" placeholder="Autor" aria-label="Username" aria-describedby="basic-addon1">
+    </tr>
+    <tr>
+        <input type="text"  [(ngModel)]="num_paginas" class="form-control" (input)="autor = $event.target.value"  placeholder="Numero de paginas" aria-label="Username" aria-describedby="basic-addon1">
+    </tr>
+        <button class="btn btn-outline-dark lead "  (click)="showData()" type="submit">Criar Livro</button>
+
+  </div>
+    <div *ngIf="cadastro_feito">
+        <label for="">Livros Cadastrados</label>
+    <ul *ngFor="let livros of livro" class="list-group">
+        <li class="list-group-item">{{livros.titulo}}</li>
+        <li class="list-group-item">{{livros.autor}}</li>
+        <li class="list-group-item">{{livros.num_paginas}}</li>
+    </ul>
+    </div>
+    
+</div>
+ 
